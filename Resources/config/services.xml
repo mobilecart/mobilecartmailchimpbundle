@@ -13,12 +13,24 @@
 
     <services>
 
+        <!-- MailChimp Service -->
         <service id="cart.mailchimp" lazy="true" class="%cart.mailchimp.class%">
             <call method="setIsEnabled">
                 <argument type="string">%cart.mailchimp.enabled%</argument>
             </call>
             <call method="setApiKey">
                 <argument type="string">%cart.mailchimp.apikey%</argument>
+            </call>
+            <call method="setCustomerListId">
+                <argument type="string">%cart.mailchimp.list.customer%</argument>
+            </call>
+        </service>
+
+        <!-- Order Success -->
+        <service id="cart.mailchimp.order.submit.success" lazy="true" class="%cart.mailchimp.order.submit.success.class%">
+            <tag name="kernel.event_listener" event="order.submit.success" method="onOrderSubmitSuccess" priority="50" />
+            <call method="setMailChimpService">
+                <argument type="service" id="cart.mailchimp" />
             </call>
         </service>
 

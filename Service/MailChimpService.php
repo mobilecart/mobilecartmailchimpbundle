@@ -14,6 +14,11 @@ class MailChimpService
     protected $apiKey = '';
 
     /**
+     * @var bool
+     */
+    protected $isEnabled = true;
+
+    /**
      * @var string
      */
     protected $customerListId = '';
@@ -34,6 +39,24 @@ class MailChimpService
     public function getApiKey()
     {
         return $this->apiKey;
+    }
+
+    /**
+     * @param $isEnabled
+     * @return $this
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsEnabled()
+    {
+        return $this->isEnabled;
     }
 
     /**
