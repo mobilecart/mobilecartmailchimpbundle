@@ -55,9 +55,15 @@ class OrderSubmitSuccess
             $lastname = $customer->getLastName();
         }
 
-        $memberId = $this->getMailChimpService()->findMemberId($email);
-        if (!strlen($memberId)) {
-            $this->getMailChimpService()->addMember($email, $firstname, $lastname);
+        // don't let an exception crash the order
+
+        try {
+            $memberId = $this->getMailChimpService()->findMemberId($email);
+            if (!strlen($memberId)) {
+                $this->getMailChimpService()->addMember($email, $firstname, $lastname);
+            }
+        } catch(\Exception $e) {
+            // todo : log the error somewhere
         }
     }
 }
