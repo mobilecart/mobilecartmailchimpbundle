@@ -8,6 +8,7 @@
         <parameter key="cart.mailchimp.enabled">1</parameter>
         <parameter key="cart.mailchimp.apikey"> </parameter>
         <parameter key="cart.mailchimp.class">MobileCart\MailChimpBundle\Service\MailChimpService</parameter>
+        <parameter key="cart.mailchimp.order.submit.success.class">MobileCart\MailChimpBundle\Service\MailChimpService</parameter>
         <parameter key="cart.mailchimp.list.customer"> </parameter>
     </parameters>
 
