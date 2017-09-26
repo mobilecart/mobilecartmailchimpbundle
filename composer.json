@@ -19,6 +19,6 @@
     "require": {
         "php": ">=5.5.24",
         "symfony/framework-bundle": "~2.8",
-        "ebizmarts/mailchimp-lib": "3.0"
+        "ebizmarts/mailchimp-lib": "^3.0"
     }
 }
